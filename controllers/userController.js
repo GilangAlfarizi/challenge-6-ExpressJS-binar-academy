@@ -19,7 +19,7 @@ const secret_key = process.env.JWT_KEY || 'no_secret'
             })
 
             return res.status(201).json({
-                data
+                data: utils.exclude(data, ['password'])
             })
         } catch (error) {
             return next(error)
